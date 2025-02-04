@@ -257,9 +257,13 @@ You want to rewrite history cleanly or move commits to another base.
 - Moves or combines commits onto another branch.
 - Used to clean up commit history (linear history).
 - Can be interactive `(git rebase -i)` to modify, squash, or reorder commits.
-- 
+- modify last 3 commits
 `git rebase -i HEAD~3`
 
+
+git revert - undo a commit but keep history
+- Creates a new commit that undoes a previous commit.
+- unlike revert, it does not remove history
 
 
 git checkout
