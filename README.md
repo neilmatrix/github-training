@@ -264,9 +264,45 @@ You want to rewrite history cleanly or move commits to another base.
 git revert - undo a commit but keep history
 - Creates a new commit that undoes a previous commit.
 - unlike revert, it does not remove history
+revert a specific commit
+`git revert <commit-hash>`
 
 
 git checkout
 - create new branch
 `git checkout -b feature-1`
-- 
+
+
+
+git log
+- commit history
+- online summary per commit - `git log --oneline`
+
+
+git status
+- current state of working directory
+- Displays unstaged, staged, and untracked files.
+`git status`
+
+
+git merge
+- combining two merges into one
+- fast forward merge - If the target branch hasn't diverged and there are no conflicting changes, Git just "moves" the target branch pointer forward
+- three-way merge - If both branches have unique changes (i.e., they've diverged), Git will create a new merge commit to combine the changes.
+
+
+```bash
+git checkout target-branch
+git merge source-branch
+```
+
+
+
+
+git fetch
+- pull from github but don't add to working directory
+
+
+
+git pull
+- git fetch + git merge
