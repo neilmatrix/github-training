@@ -225,7 +225,44 @@ extract specific property of config
 `git config --get user.name`
 
 
-unstage a file
+
+git restore
+- used to discard changes in the working directory
+- can also unstage files from the staging area
+use cases
+1. Undo local changes (before staging):
+`git restore myfile.txt`
+1. unstage a file
 `git restore --staged myfile.txt`
+1. Restore a file to its last committed version:
+`git restore --source=HEAD myfile.txt`
 
 
+git reset - move head
+- moves head to an earlier commit
+- different modes
+  - `--soft` - Moves HEAD but keeps staged & working directory changes.
+  - `--mixed (default)` - Moves HEAD, unstages changes but keeps them in working directory.
+  - `--hard` - Moves HEAD, deletes everything (staged & working changes).
+1. reset branch to previous commit
+`git reset --soft HEAD~1`
+1. reset branch and unstage changes
+`git reset --mixed HEAD~1`
+1. reset branch and delete all changes
+`git reset --hard HEAD~1`
+
+
+git rebase - rewriting history
+You want to rewrite history cleanly or move commits to another base.
+- Moves or combines commits onto another branch.
+- Used to clean up commit history (linear history).
+- Can be interactive `(git rebase -i)` to modify, squash, or reorder commits.
+- 
+`git rebase -i HEAD~3`
+
+
+
+git checkout
+- create new branch
+`git checkout -b feature-1`
+- 
