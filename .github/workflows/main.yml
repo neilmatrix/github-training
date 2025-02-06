@@ -1,0 +1,17 @@
+name: demo-actions
+
+on:
+  push:
+    branches: main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: run a sample
+        run: echo "hello world"
