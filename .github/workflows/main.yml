@@ -18,3 +18,10 @@ jobs:
 
       - name: run a sample
         run: echo "hello world"
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: my-files
+          path: ${{github.workspaces}}
+        
