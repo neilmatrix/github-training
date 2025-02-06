@@ -24,4 +24,14 @@ jobs:
         with:
           name: my-files
           path: ${{github.workspace}}
+
+    deploy:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: download artifact
+          uses: actions/download-artifact@v4.1.8
+          with:
+            name: my-stored-artifacts
+            path: ${{github.workspace}}
         
