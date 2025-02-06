@@ -253,20 +253,108 @@ git reset - move head
 
 
 git rebase - rewriting history
-You want to rewrite history cleanly or move commits to another base.
+- You want to rewrite history cleanly or move commits to another base.
+- Unlike merging, which preserves the entire history of both branches, rebase rewrites history by placing your commits on top of another branch’s commits.
 - Moves or combines commits onto another branch.
 - Used to clean up commit history (linear history).
 - Can be interactive `(git rebase -i)` to modify, squash, or reorder commits.
 - modify last 3 commits
 `git rebase -i HEAD~3`
+```bash
+git checkout feature-branch
+git rebase main       # Now, to rebase your feature-branch onto the latest main, you would use:
+```
+
+
+
+
 
 
 git revert - undo a commit but keep history
 - Creates a new commit that undoes a previous commit.
 - unlike revert, it does not remove history
+revert a specific commit
+`git revert <commit-hash>`
 
 
 git checkout
 - create new branch
 `git checkout -b feature-1`
-- 
+
+
+
+git log
+- commit history
+- online summary per commit - `git log --oneline`
+
+
+git status
+- current state of working directory
+- Displays unstaged, staged, and untracked files.
+`git status`
+
+
+git merge
+- combining two merges into one
+- fast forward merge - If the target branch hasn't diverged and there are no conflicting changes, Git just "moves" the target branch pointer forward
+- three-way merge - If both branches have unique changes (i.e., they've diverged), Git will create a new merge commit to combine the changes.
+
+
+```bash
+git checkout target-branch
+git merge source-branch
+```
+
+
+
+
+git fetch
+- pull from github but don't add to working directory
+
+
+
+git pull
+- git fetch + git merge
+
+
+
+
+origin
+- In Git, origin is the default name given to the remote repository that you cloned from or the default remote for a local repository. It’s essentially a shorthand or alias for the full URL of the remote repository.
+- view remote repos
+`git remote -v`
+- fetch all the changes from remote repo
+`git fetch origin`
+- push local main to origin main
+`git push origin main`
+- if remote repo is moved to some other url
+`git remote set-url origin <new-url>`
+
+
+
+git cherry-pick
+- In Git, cherry-pick is a command used to apply a commit from one branch onto another branch. It allows you to pick a specific commit (or multiple commits) from one branch and apply them to another branch, without merging the entire branch.
+- `git cherry-pick <commit-hash>`
+
+
+
+code governance on github
+- protected branch
+  - settings => branches => branch protection rule
+  - enter brnach name
+  - check - require a pull request before merging
+  - check - require number of approvals
+  - check - require review from the code owners
+  - check - require conversation resolution before merging
+
+
+- settings => ruleset
+  - restrict creation
+  - restrict deletions
+  - block force pushes
+  - restrict commit metadata
+
+
+- in organisation we have
+  - team and
+  - collaborators
